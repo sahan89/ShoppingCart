@@ -22,6 +22,14 @@ public class User implements Serializable{
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<ShoppingCart> shoppingCarts = new HashSet<>();
 
+    public User(String email, String name) {
+        this.email = email;
+        this.name = name;
+    }
+
+    public User(){
+    }
+
     public Long getId() {
         return id;
     }

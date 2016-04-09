@@ -2,7 +2,6 @@ package com.sahan.zaizi.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,10 +27,21 @@ public class Product implements Serializable {
     private Integer quantity;
 
     @Column(name = "unit_price")
-    private BigDecimal unitPrice;
+    private Double unitPrice;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
     private Set<ShoppingCart> shoppingCarts = new HashSet<>();
+
+    public Product(){
+
+    }
+
+    public Product(Double unitPrice, Integer quantity, String description, String name) {
+        this.unitPrice = unitPrice;
+        this.quantity = quantity;
+        this.description = description;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
@@ -57,11 +67,11 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public BigDecimal getUnitPrice() {
+    public Double getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(BigDecimal unitPrice) {
+    public void setUnitPrice(Double unitPrice) {
         this.unitPrice = unitPrice;
     }
 
