@@ -1,33 +1,66 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<!--<table>-->
+<!--<tr ng-repeat="x in products">-->
+<!--<td>-->
+<!--<div class="panel panel-primary">-->
+<!--&lt;!&ndash; /.panel-heading &ndash;&gt;-->
+<!--<div class="panel-body">-->
+<!--&lt;!&ndash; Nav tabs &ndash;&gt;-->
+<!--&lt;!&ndash; Tab panes &ndash;&gt;-->
+<!--<div class="tab-content">-->
+<!--<div class="tab-pane fade in active" id="home">-->
+<!--<h4>{{ x.name }}</h4>-->
+<!--<p></p>-->
+<!--<h3 class="item_price">Rs.{{ x.unitPrice }}</h3>-->
+<!--<h5 class="item_price">{{ x.description }}</h5>-->
+<!--<p><i class="fa-shopping-cart fa-fw"><a href="#" class="btn btn-primary" role="button">Add-->
+<!--to Cart</a></i></p>-->
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</td>-->
+<!--</tr>-->
+<!--</table>-->
+
+<div class="cart box_1" style="float: right">
+    <a href="checkout.html">
+        <h4>
+            <div class="total">
+                <span class="simpleCart_total">0 &nbsp; Items</span>
+                <img src="app/images/cart.png" alt=""> |
+                <span class="simpleCart_total">Rs.&nbsp; 0.00</span>
+
+
+            </div>
+        </h4>
+    </a>
+    <p><a href="javascript:;" class="simpleCart_empty" style="color: red">Empty Cart</a></p>
+
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<div class="panel-body">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Product</th>
+            <th>Unit Price</th>
+            <th>Description</th>
+            <th>Add to Cart</th>
+        </tr>
+        </thead>
+        <tbody>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-
-  <table>
-    <tr>
-      <td>name</td>
-    </tr>
-    <tr ng-repeat="x in products">
-      <td>{{ x.name }}</td>
-    </tr>
-  </table>
-
+        <tr ng-repeat="x in products">
+            <td>{{ x.id }}</td>
+            <td>{{ x.name }}</td>
+            <td>Rs. &nbsp;{{ x.unitPrice }}</td>
+            <td>{{ x.description }}</td>
+            <td>
+                <p><i><a href="#" class="btn btn-primary" role="button">Add
+                    to Cart</a></i></p></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
