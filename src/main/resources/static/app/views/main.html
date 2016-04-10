@@ -37,15 +37,17 @@
         </thead>
         <tbody>
 
-        <tr ng-repeat="x in products">
-            <td>{{ x.id }}</td>
-            <td>{{ x.name }}</td>
-            <td>Rs. &nbsp;{{ x.unitPrice }}</td>
-            <td>{{ x.description }}</td>
-            <td><input class="form-control" type="number" value="1" required="required" ng-model="stock" style="width: 75px"/>
+        <tr ng-repeat="pro in products">
+            <td>{{ pro.id }}</td>
+            <td>{{ pro.name }}</td>
+            <td>Rs. &nbsp;{{ pro.unitPrice }}</td>
+            <td>{{ pro.description }}</td>
+            <td><input class="form-control" name="stocks" type="number" placeholder="1" min="1" value="1" step="1"
+                        required="required" ng-model="stock" style="width: 75px"/>
             </td>
+
             <td>
-                <button type="submit" class="btn btn-primary" ng-click="addToCart(x,stock)">Add to Cart &nbsp; <span
+                <button type="submit" class="btn btn-primary" ng-click="addToCart(pro,stock)">Add to Cart &nbsp; <span
                         class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
                 </a>
             </td>

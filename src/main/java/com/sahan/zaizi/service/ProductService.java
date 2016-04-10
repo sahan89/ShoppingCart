@@ -33,32 +33,6 @@ public class ProductService{
         productRepository.save(products);
     }
 
-   /* public Product saveProduct(Product product) {
-        return productRepository.save(product);
-    }
-
-    public Collection<Product> getAllProducts() {
-        Iterable<Product> itr = productRepository.findAll();
-        return (Collection<Product>)itr;
-    }
-
-    public boolean deleteProduct(Long proId) {
-        Product temp = productRepository.findOne(proId);
-        if(temp!=null){
-            productRepository.delete(temp);
-            return true;
-        }
-        return false;
-    }
-
-    public Product findProduct(Long proId) {
-        return productRepository.findOne(proId);
-    }
-
-    public Product editProduct(Product product) {
-        return productRepository.save(product);
-    }*/
-
     public List<Product> findAll(){
         return productRepository.findAll();
     }

@@ -12,7 +12,7 @@
     <a href="/shoppingcart/#/">
         <h4>
             <div class="total">
-                <span class="simpleCart_total">{{ itemCounter }} &nbsp; Items</span>
+                <span class="simpleCart_total">0 &nbsp; Items</span>
                 <img src="app/images/cart.png" alt=""> |
                 <span class="simpleCart_total">Rs.&nbsp; 0.00</span>
 
@@ -36,18 +36,19 @@
         </thead>
         <tbody>
 
-        <tr ng-repeat="x in products">
+        <tr ng-repeat="x in shoppingCart">
             <td>{{ x.id }}</td>
-            <td>{{ x.name }}</td>
-            <td>Rs. &nbsp;{{ x.unitPrice }}</td>
-            <td>{{ x.description }}</td>
-            <td><input class="form-control" type="number" value="1" required="required" ng-model="stock" style="width: 75px"/>
-            </td>
-            <td>
-                <button type="submit" class="btn btn-primary" ng-click="addToCart(x,stock)">Add to Cart &nbsp; <span
-                        class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
-                </a>
-            </td>
+            <td>{{ x.product.name }}</td>
+            <td>Rs. &nbsp;{{ x.amount }}</td>
+            <td>{{ x.stock }}</td>
+            <!--<td>{{ x.description }}</td>-->
+            <!--<td><input class="form-control" type="number" required="required" ng-model="stock" style="width: 75px"/>-->
+            <!--</td>-->
+            <!--<td>-->
+                <!--<button type="submit" class="btn btn-primary" ng-click="addToCart(x,stock)">Add to Cart &nbsp; <span-->
+                        <!--class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>-->
+                <!--</a>-->
+            <!--</td>-->
         </tr>
         </tbody>
     </table>

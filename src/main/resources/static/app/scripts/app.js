@@ -34,8 +34,15 @@ angular
 
             .when('/cart', {
                 templateUrl: 'app/views/cart.html',
-                controller: 'AboutCtrl',
-                controllerAs: 'cart'
+                controller: 'CartCtrl',
+                controllerAs: 'cart',
+                resolve: {
+                    shoppingCart: function ($http) { //  data assign to shoppingCart list
+                        return $http.get("http://localhost:8080/shoppingcart/shoppingCart").then(function (response) {
+                            return response.data;
+                        })
+                    }
+                }
             })
             .otherwise({
                 redirectTo: '/'

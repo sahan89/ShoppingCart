@@ -16,8 +16,18 @@ angular.module('demoApp')
             $scope.itemCounter += 1;
             $scope.shoppingCart = {};
             $scope.shoppingCart.productId = product.id;
-            $scope.shoppingCart.stock = stock;
             $scope.shoppingCart.status = "NOT_PURCHASED";
+
+
+            if(angular.isUndefined(stock)){
+                //window.alert("Quantity Cannot be Empty");
+                console.log("Nullllllllllllllllllll")
+                $scope.shoppingCart.stock = 1;
+            }else {
+                $scope.shoppingCart.stock = stock;
+            }
             $http.post('http://localhost:8080/shoppingcart/shoppingCart', $scope.shoppingCart);
+            //$http.put -->> update
+            //$http.delete
         }
     }]);

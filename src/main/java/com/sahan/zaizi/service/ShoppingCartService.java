@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by sahan on 4/9/2016.
@@ -33,11 +34,28 @@ public class ShoppingCartService {
         Product product = productRepository.findOne(shoppingCartDTO.getProductId());
         shoppingCart.setProduct(product);
         shoppingCart.setUser(userRepository.findOne(1L));
-        shoppingCart.setStock(shoppingCartDTO.getStock());
         shoppingCart.setStatus(shoppingCartDTO.getStatus());
         shoppingCart.setDate(new Date());
+        shoppingCart.setStock(shoppingCartDTO.getStock());
         shoppingCart.setAmount(product.getUnitPrice() * shoppingCartDTO.getStock());
 
         return shoppingCartRepository.save(shoppingCart);
+    }
+
+
+    public List<ShoppingCart> findAll() {
+//        return shoppingCartRepository.findAll();
+        return shoppingCartRepository.findByStatus("NOT_PURCHASED");
+    }
+
+    public  ShoppingCart updateProduct(ShoppingCartDTO shoppingCartDTO, Long id) {
+        ShoppingCart updateItem = shoppingCartRepository.findOne(id);
+        updateItem.setStock(shoppingCartDTO.getStock());
+        updateItem.setAmount(updateItem.getProduct().getUnitPrice() * shoppingCartDTO.getStock());
+        return shoppingCartRepository.save(updateItem);
+    }
+
+    public void  deleteProduct(Long id) {
+        shoppingCartRepository.delete(id);
     }
 }
