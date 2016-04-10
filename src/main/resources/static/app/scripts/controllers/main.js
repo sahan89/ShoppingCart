@@ -29,6 +29,5 @@ angular.module('demoApp')
             $http.post('http://localhost:8080/shoppingcart/shoppingCart', $scope.shoppingCart);
             //$http.put -->> update
             //$http.delete
-
         }
     }]);
