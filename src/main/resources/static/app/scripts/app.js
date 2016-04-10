@@ -32,10 +32,10 @@ angular
                 }
             })
 
-            .when('/about', {
-                templateUrl: 'app/views/about.html',
+            .when('/cart', {
+                templateUrl: 'app/views/cart.html',
                 controller: 'AboutCtrl',
-                controllerAs: 'about'
+                controllerAs: 'cart'
             })
             .otherwise({
                 redirectTo: '/'
