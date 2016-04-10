@@ -1,33 +1,8 @@
-<!--<table>-->
-<!--<tr ng-repeat="x in products">-->
-<!--<td>-->
-<!--<div class="panel panel-primary">-->
-<!--&lt;!&ndash; /.panel-heading &ndash;&gt;-->
-<!--<div class="panel-body">-->
-<!--&lt;!&ndash; Nav tabs &ndash;&gt;-->
-<!--&lt;!&ndash; Tab panes &ndash;&gt;-->
-<!--<div class="tab-content">-->
-<!--<div class="tab-pane fade in active" id="home">-->
-<!--<h4>{{ x.name }}</h4>-->
-<!--<p></p>-->
-<!--<h3 class="item_price">Rs.{{ x.unitPrice }}</h3>-->
-<!--<h5 class="item_price">{{ x.description }}</h5>-->
-<!--<p><i class="fa-shopping-cart fa-fw"><a href="#" class="btn btn-primary" role="button">Add-->
-<!--to Cart</a></i></p>-->
-<!--</div>-->
-
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</td>-->
-<!--</tr>-->
-<!--</table>-->
-
 <div class="cart box_1" style="float: right">
     <a href="checkout.html">
         <h4>
             <div class="total">
-                <span class="simpleCart_total">0 &nbsp; Items</span>
+                <span class="simpleCart_total">{{ itemCounter }} &nbsp; Items</span>
                 <img src="app/images/cart.png" alt=""> |
                 <span class="simpleCart_total">Rs.&nbsp; 0.00</span>
 
@@ -47,6 +22,7 @@
             <th>Product</th>
             <th>Unit Price</th>
             <th>Description</th>
+            <th>Quantity</th>
             <th>Add to Cart</th>
         </tr>
         </thead>
@@ -57,9 +33,14 @@
             <td>{{ x.name }}</td>
             <td>Rs. &nbsp;{{ x.unitPrice }}</td>
             <td>{{ x.description }}</td>
+            <td><input type="number" ng-model="stock"/></td>
             <td>
-                <p><i><a href="#" class="btn btn-primary" role="button">Add
-                    to Cart</a></i></p></td>
+                <!--<p><i><a href="#" class="btn btn-primary" role="button">Add-->
+                <!--to Cart</a></i></p>-->
+                <button type="submit" class="btn btn-primary" ng-click="addToCart(x,stock)">Add to Cart</button>
+                <!--<a href="#/products" class="btn btn-primary">Add to Cart <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>-->
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
