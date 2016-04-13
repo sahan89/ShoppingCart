@@ -34,8 +34,13 @@ public class ShoppingCartController {
         return shoppingCartService.updateProduct(shoppingCartDTO, ids);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, produces = "application/json", consumes = "application/json", value ="/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value ="/{id}")
     public void deleteProductItem(@PathVariable("id") Long ids) {
         shoppingCartService.deleteProduct(ids);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void ClearCart( Object object) {
+        shoppingCartService.clearShoppingCart(object);
     }
 }

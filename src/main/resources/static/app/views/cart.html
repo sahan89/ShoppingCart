@@ -9,7 +9,7 @@
 </div>
 
 <div class="cart box_1" style="float: right">
-    <a href="/shoppingcart/#/">
+    <a href="/shoppingcart/#/cart">
         <h4>
             <div class="total">
                 <span class="simpleCart_total">0 &nbsp; Items</span>
@@ -20,36 +20,54 @@
             </div>
         </h4>
     </a>
-    <p><a href="javascript:;" class="simpleCart_empty" style="color: red">Empty Cart</a></p>
+    <!--<p><a href="javascript:;" class="simpleCart_empty" style="color: red">Empty Cart</a></p>-->
+    <button type="submit" class="btn btn-primary" ng-click="clearCart(shoppingCart)">Clear Cart &nbsp; <span
+            class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
 </div>
 
 <div class="panel-body">
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>#</th>
+            <!--<th>#</th>-->
             <th>Product</th>
             <th>Amount</th>
             <th>Quantity</th>
+            <!--<th>Price</th>-->
             <th>Update | Delete</th>
         </tr>
         </thead>
         <tbody>
 
         <tr ng-repeat="x in shoppingCart">
-            <td>{{ x.id }}</td>
+            <!--<td>{{ x.id }}</td>-->
             <td>{{ x.product.name }}</td>
-            <td>Rs. &nbsp;{{ x.amount }}</td>
-            <td>{{ x.stock }}</td>
-            <!--<td>{{ x.description }}</td>-->
-            <!--<td><input class="form-control" type="number" required="required" ng-model="stock" style="width: 75px"/>-->
-            <!--</td>-->
+            <td>Rs. &nbsp;{{ x.amount | number : 2 }}</td>
+            <td>
+                <!--{{ x.stock }}-->
+                <input class="form-control" name="stocks" type="number" placeholder="1" min="1" value="{{ x.stock }}"
+                       step="1"
+                       required="required" ng-model="stock" style="width: 75px"/>
+            </td>
             <!--<td>-->
-                <!--<button type="submit" class="btn btn-primary" ng-click="addToCart(x,stock)">Add to Cart &nbsp; <span-->
-                        <!--class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>-->
-                <!--</a>-->
+                <!--Rs.{{x.product.unitPrice * stock | number : 2}}-->
             <!--</td>-->
+            <td>
+                <button type="submit" class="btn btn-primary" ng-click="updateCart(x, stock)">Update <span
+                        class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
+                <button type="submit" class="btn btn-danger" ng-click="deleteProduct(x)">Delete <span
+                        class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+            </td>
+
         </tr>
         </tbody>
     </table>
+
+
+
+    <div style="float: right">
+        <button type="submit" style="width: 180px" class="btn btn-success" ng-click="deleteProduct(x)"><span
+                class="glyphicon glyphicon-usd" aria-hidden="true"></span> Buy Now </button>
+    </div>
+
 </div>

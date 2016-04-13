@@ -20,7 +20,7 @@
             </div>
         </h4>
     </a>
-    <p><a href="javascript:;" class="simpleCart_empty" style="color: red">Empty Cart</a></p>
+    <!--<p><a href="javascript:;" class="simpleCart_empty" style="color: red">Empty Cart</a></p>-->
 </div>
 
 <div class="panel-body">
@@ -32,6 +32,7 @@
             <th>Unit Price</th>
             <th>Description</th>
             <th>Quantity</th>
+            <th>Price</th>
             <th>Add to Cart</th>
         </tr>
         </thead>
@@ -40,18 +41,22 @@
         <tr ng-repeat="pro in products">
             <td>{{ pro.id }}</td>
             <td>{{ pro.name }}</td>
-            <td>Rs. &nbsp;{{ pro.unitPrice }}</td>
+            <td>Rs. &nbsp;{{ pro.unitPrice | number : 2 }}</td>
             <td>{{ pro.description }}</td>
-            <td><input class="form-control" name="stocks" type="number" placeholder="1" min="1" value="1" step="1"
-                        required="required" ng-model="stock" style="width: 75px"/>
+            <td><input class="form-control" name="stocks" type="number" placeholder="0" min="1" value="1" step="1"
+                       required="required" ng-model="stock" style="width: 75px"/>
             </td>
-
+            <td>
+                Rs. {{pro.unitPrice * stock | number : 2}}
+            </td>
             <td>
                 <button type="submit" class="btn btn-primary" ng-click="addToCart(pro,stock)">Add to Cart &nbsp; <span
                         class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></button>
                 </a>
             </td>
+
         </tr>
+
         </tbody>
     </table>
 </div>

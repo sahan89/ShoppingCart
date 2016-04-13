@@ -58,4 +58,8 @@ public class ShoppingCartService {
     public void  deleteProduct(Long id) {
         shoppingCartRepository.delete(id);
     }
+
+    public void  clearShoppingCart(Object object) {
+        shoppingCartRepository.deleteAll();
+    }
 }
