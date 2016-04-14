@@ -22,11 +22,11 @@ public class ProductService{
     private static List<Product> products = new ArrayList<>();
 
     static {
-        products.add(new Product(35.75d,1000,"Soap","Soap"));
-        products.add(new Product(45.50d,500,"Tooth Brushes","Tooth Brushes"));
-        products.add(new Product(1500.0d,100,"Cloths","Cloths"));
-        products.add(new Product(1000.0d,400,"Bags","Bags"));
-        products.add(new Product(450.0d,800,"Bottles","Bottles"));
+        products.add(new Product(35.75d,1000,"Pears baby soap for Kids","Soap"));
+        products.add(new Product(45.50d,500,"Signal Tooth Brushes Size in (L, M, S)","Tooth Brushes"));
+        products.add(new Product(1500.0d,100,"Casual Shirt imported from France","Cloths"));
+        products.add(new Product(1000.0d,400,"Leather bag imported from USA ","Bags"));
+        products.add(new Product(450.0d,800,"Hot Water Bottles","Bottles"));
     }
 
     public void saveInitialBatch(){

@@ -46,7 +46,6 @@ public class ShoppingCartController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/purchase/{id}")
     public void purchaseProducts(@PathVariable("id") Long id) {
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!");
         shoppingCartService.purchaseProducts(id);
     }
 }
