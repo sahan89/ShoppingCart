@@ -45,6 +45,19 @@ angular
                 }
             })
 
+            .when('/history', {
+                templateUrl: 'app/views/history.html',
+                controller: 'HistoryCtrl',
+                controllerAs: 'history',
+                resolve: {
+                    history: function ($http) {
+                        return $http.get("http://localhost:8080/shoppingcart/history").then(function (response) {
+                            return response.data;
+                        })
+                    }
+                }
+            })
+
             .otherwise({
                 redirectTo: '/'
             });

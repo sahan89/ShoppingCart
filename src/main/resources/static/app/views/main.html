@@ -8,20 +8,20 @@
     </a>
 </div>
 
-<div class="cart box_1" style="float: right">
-    <a href="/shoppingcart/#/cart">
-        <h4>
-            <div class="total">
-                <span class="simpleCart_total">{{ itemCounter }} &nbsp; Items</span>
-                <img src="app/images/cart.png" alt=""> |
-                <span class="simpleCart_total">Rs.&nbsp; 0.00</span>
+<!--<div class="cart box_1" style="float: right">-->
+    <!--<a href="/shoppingcart/#/cart">-->
+        <!--<h4>-->
+            <!--<div class="total">-->
+                <!--<span class="simpleCart_total">{{ itemCounter }} &nbsp; Items</span>-->
+                <!--<img src="app/images/cart.png" alt=""> |-->
+                <!--<span class="simpleCart_total">Rs.&nbsp; 0.00</span>-->
 
 
-            </div>
-        </h4>
-    </a>
-    <!--<p><a href="javascript:;" class="simpleCart_empty" style="color: red">Empty Cart</a></p>-->
-</div>
+            <!--</div>-->
+        <!--</h4>-->
+    <!--</a>-->
+    <!--&lt;!&ndash;<p><a href="javascript:;" class="simpleCart_empty" style="color: red">Empty Cart</a></p>&ndash;&gt;-->
+<!--</div>-->
 
 <div class="panel-body">
     <table class="table table-hover">
@@ -46,7 +46,7 @@
             <td><input class="form-control" name="stocks" type="number" placeholder="0" min="1" value="1" step="1"
                        required="required" ng-model="stock" style="width: 75px"/>
             </td>
-            <td>
+            <td style="width: 150px">
                 Rs. {{pro.unitPrice * stock | number : 2}}
             </td>
             <td>

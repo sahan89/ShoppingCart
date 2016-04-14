@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name demoApp.controller:AboutCtrl
+ * @name demoApp.controller:CartCtrl
  * @description
- * # AboutCtrl
+ * # CartCtrl
  * Controller of the demoApp
  */
 angular.module('demoApp')
@@ -33,8 +33,28 @@ angular.module('demoApp')
 
         $scope.clearCart = function () {
             console.log("xxx--->> " + shoppingCart)
-            $scope.shoppingCart = {};
             $http.delete('http://localhost:8080/shoppingcart/shoppingCart/');
             return '/cart';
         }
+
+
+        $scope.purchaseProducts = function (shoppingCart) {
+            console.log("asasa--->> " + shoppingCart);
+            var i = 0;
+            for (i = 0; i < shoppingCart.length; i++) {
+                $http.post('http://localhost:8080/shoppingcart/shoppingCart/purchase/' + shoppingCart[i].id);
+
+            }
+
+            //return '/cart';
+            //$scope.shoppingCart = {};
+            //if ($scope.shoppingCart.stock = stock == null) {
+            //    $scope.shoppingCart.stock = shoppingCart.stock;
+            //} else {
+            //    $scope.shoppingCart.stock = stock;
+            //}
+            //return '/cart';
+        }
+
+
     }]);

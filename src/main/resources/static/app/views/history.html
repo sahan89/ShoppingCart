@@ -1,1 +1,29 @@
-<p>This is the History view.</p>
+<div class="cart box_1" style="float: left">
+    <a>
+        <h2>
+            <div class="total">
+                <span class="simpleCart_total">Purchase History <img src="app/images/money.png" alt=""> </span>
+            </div>
+        </h2>
+    </a>
+</div>
+
+<div class="panel-body">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Amount</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr ng-repeat="details in history1">
+            <td>{{ details.product.name }}</td>
+            <td>Rs. &nbsp;{{ details.amount | number : 2 }}</td>
+            <td> {{ details.stock }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

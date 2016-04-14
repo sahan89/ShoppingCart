@@ -48,18 +48,30 @@ public class ShoppingCartService {
         return shoppingCartRepository.findByStatus("NOT_PURCHASED");
     }
 
-    public  ShoppingCart updateProduct(ShoppingCartDTO shoppingCartDTO, Long id) {
+    public ShoppingCart updateProduct(ShoppingCartDTO shoppingCartDTO, Long id) {
         ShoppingCart updateItem = shoppingCartRepository.findOne(id);
         updateItem.setStock(shoppingCartDTO.getStock());
         updateItem.setAmount(updateItem.getProduct().getUnitPrice() * shoppingCartDTO.getStock());
         return shoppingCartRepository.save(updateItem);
     }
 
-    public void  deleteProduct(Long id) {
+    public void deleteProduct(Long id) {
         shoppingCartRepository.delete(id);
     }
 
-    public void  clearShoppingCart(Object object) {
-        shoppingCartRepository.deleteAll();
+    public void clearShoppingCart(Object object) {
+        shoppingCartRepository.delete(findAll());
+    }
+
+
+    public List<ShoppingCart> findByPurchased() {
+        return shoppingCartRepository.findByStatus("PURCHASED");
+    }
+
+
+    public void purchaseProducts(Long id) {
+        ShoppingCart shoppingCart = shoppingCartRepository.findOne(id);
+        shoppingCart.setStatus("PURCHASED");
+        shoppingCartRepository.save(shoppingCart);
     }
 }
