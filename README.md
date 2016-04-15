@@ -5,7 +5,7 @@ Create Sample Shopping Cart Application for home work assignment to the Zaizi As
 * Java 1.8
 * Maven 3
 * MySQL
-* Spring
+* Spring Boot
 * Hibernate
 * HTML , CSS & Javascript (AngularJS/Bootstrap)
 
