@@ -29,7 +29,7 @@ angular.module('demoApp')
         }
 
 
-        $scope.clearCart = function () {
+        $scope.clearCart = function (shoppingCart) {
             $http.delete('http://localhost:8080/shoppingcart/shoppingCart/');
             return '/cart';
         }
