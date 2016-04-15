@@ -69,7 +69,6 @@
                             data-target="#exampleModal" data-whatever="@mdo"><span
                             class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Proceed
                     </button>
-
                 </div>
             </td>
         </tr>
@@ -102,19 +101,18 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" style="width: 180px" class="btn btn-primary" data-dismiss="modal"
+                    <button type="button"  onclick="Redirect();" style="width: 180px" class="btn btn-primary" data-dismiss="modal"
                             data-target=".bs-example-modal-sm" ng-click="purchaseProducts(shoppingCart)"><span
-                            class="glyphicon glyphicon-usd" aria-hidden="true" href="/shoppingcart/#/history" ></span>
+                            class="glyphicon glyphicon-usd"aria-hidden="true"></span>
                         Buy Now
                     </button>
-                    <!--<input type="button" value="Redirect Me" onclick="Redirect();" />-->
-                    <!--<script type="text/javascript">-->
-                        <!--&lt;!&ndash;-->
-                        <!--function Redirect() {-->
-                            <!--window.location="http://localhost:8080/shoppingcart/#/product";-->
-                        <!--}-->
-                        <!--//&ndash;&gt;-->
-                    <!--</script>-->
+                    <script type="text/javascript">
+                        <!--
+                        function Redirect() {
+                            window.location="http://localhost:8080/shoppingcart/#/history";
+                        }
+                        //-->
+                    </script>
                 </div>
             </div>
         </div>
