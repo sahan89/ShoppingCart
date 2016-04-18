@@ -23,7 +23,4 @@ public class ProductController {
     public List<Product> getAll(){
         return productService.findAll();
     }
-
-
-
 }

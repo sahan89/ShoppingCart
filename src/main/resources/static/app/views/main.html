@@ -22,7 +22,7 @@
     <!--</a>-->
     <!--&lt;!&ndash;<p><a href="javascript:;" class="simpleCart_empty" style="color: red">Empty Cart</a></p>&ndash;&gt;-->
 <!--</div>-->
-
+<input class="form-control" ng-model="searchKeyword" placeholder="Search"/>
 <div class="panel-body">
     <table class="table table-hover">
         <thead>
@@ -38,7 +38,7 @@
         </thead>
         <tbody>
 
-        <tr ng-repeat="pro in products">
+        <tr ng-repeat="pro in products | filter: searchKeyword ">
             <td>{{ pro.id }}</td>
             <td>{{ pro.name }}</td>
             <td>Rs. &nbsp;{{ pro.unitPrice | number : 2 }}</td>
